@@ -20,11 +20,9 @@ def app_run(stream_in) :
             f0m = np.max([f0m, 6]) - 6
             f0m = np.min([f0m, 3]) / 3
 
-            print(f0m)
+            print(f'log_2(f0) = {np.log2(f0.mean(), where=f0.mean()>0):.03f}  ' + ('#' * int(f0m*100) ))
 
             mat = np.ones((10, 10)) * (f0m * 255)
-
-            print(f0m * 255)
 
             plt.axis('off')
             plt.imshow(mat, vmin=0, vmax=255)
